@@ -1,3 +1,4 @@
+<?php include 'left-sidebar.php'; ?>
 <?php
 // You can handle login or registration logic here if this is a unified file
 // Example placeholders:
@@ -21,7 +22,6 @@
 
 <body>
 	<?php
-	session_start();
 	include("database.php");
 	// Google reCAPTCHA secret key
 	$recaptcha_secret = '6LdyQIoqAAAAAM5XvmSQe75z4vJCFig9WhrWhN8w'; // Your secret key here

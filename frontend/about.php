@@ -1,4 +1,5 @@
 <?php include('header.php'); ?>
+<?php include 'left-sidebar.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

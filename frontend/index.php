@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php include 'left-sidebar.php'; ?>
 <?php
 //This is a session expired code
 //	session_start();

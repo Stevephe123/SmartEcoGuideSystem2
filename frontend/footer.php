@@ -12,6 +12,7 @@
                         <li><a href="parks.php">Parks Map</a></li>
                         <li><a href="guides.php">Find a Guide</a></li>
                         <li><a href="login.php">Guide Login</a></li>
+                        <li><a href="survey.php">Feedback</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
