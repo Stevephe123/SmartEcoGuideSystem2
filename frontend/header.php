@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><a href="parks.php">Parks</a></li>
                     <li><a href="guides.php">Guides</a></li>
                     <li><a href="about.php">About</a></li>
+                    <li><a href="survey.php">Feedback</a></li>
                     <li><a href="login.php">Login</a></li>
                 </ul>
             </nav>

@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php include 'left-sidebar.php'; ?>
 
 <section id="hero-section">
     <div class="hero-content">
