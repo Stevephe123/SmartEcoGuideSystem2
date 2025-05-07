@@ -39,9 +39,48 @@
 			 $Table[$i]."<br>";
 			 $Con->query($Table[$i]); //if still error cannot create table check variable
 		}
-       /* $AddSysUser = "INSERT INTO tbllogin(Ic, Username, Password, UserRole, Status) VALUES('1',
-                'ADMIN',
-                '".md5('123')."', 'ADMINISTRATOR', 'ACTIVE')"; $AddResult = $Con->query($AddSysUser);*/
+			// Check if admin exists
+    	$admin_check = "SELECT Email FROM userlist WHERE Email = 'admin@123'";
+    	$admin_result = $Con->query($admin_check);
+
+		$admin_exists = false;
+    	if ($admin_result && $admin_result->num_rows > 0) {
+        $admin_exists = true;
+    	}
+
+    		// Free the result from the admin check query
+    		$admin_result->free();
+
+    	if (!$admin_exists) { // If admin doesn't exist, insert the admin user
 		
+			$hashed_password = hash('sha256', '123');
+        	$query = "INSERT INTO userlist(Username, Email, Password, UserRole, Status) 
+                  VALUES('1', 'admin@123', '" . $hashed_password . "', 'ADMINISTRATOR', 'ACTIVE')";
+        	$Con->query($query);
+
+    	} 
+		
+		// Check if admin exists
+    	$guide_check = "SELECT Email FROM userlist WHERE Email = 'guide@123'";
+    	$guide_result = $Con->query($guide_check);
+
+		$guide_exists = false;
+    	if ($guide_result && $guide_result->num_rows > 0) {
+        $guide_exists = true;
+    	}
+
+    		// Free the result from the admin check query
+    		$guide_result->free();
+
+    	if (!$guide_exists) { // If admin doesn't exist, insert the admin user
+		
+			$hashed_password = hash('sha256', '123');
+        	$query = "INSERT INTO userlist(Username, Email, Password, UserRole, Status) 
+                  VALUES('2', 'guide@123', '" . $hashed_password . "', 'GUIDE', 'ACTIVE')";
+        	$Con->query($query);
+
+    	} 
+		$Con->close();
+
 	}
 ?>
