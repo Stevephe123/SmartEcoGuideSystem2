@@ -1,5 +1,10 @@
-<?php include 'left-sidebar.php'; ?>
-<?php
+<?php 
+session_start();
+error_reporting(0);
+if($_SESSION['Userole'] == 'ADMINISTRATOR'){
+include 'left-sidebar.php';
+}
+include 'header.php'; 
 // You can handle login or registration logic here if this is a unified file
 // Example placeholders:
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -70,6 +75,7 @@
                 $_SESSION['Email'] = $dbUserData['Email'];
                 $_SESSION['Id'] = $dbUserData['Id'];
                 $_SESSION['session_id'] = $dbUserData['session_id'];
+				$_SESSION['Userole'] = $dbUserData['UserRole'];
                 $_SESSION['time'] = $dbUserData['time'];
 
                 // Session management (prevent session fixation)
@@ -91,7 +97,17 @@
                 }
 
                 // Redirect to the dashboard after successful login
-                header("Location: index.php");
+				if($_SESSION['Userole'] == 'ADMINISTRATOR')
+				{
+					 header("Location: admin.php");
+				}
+				else if($_SESSION['Userole'] == 'GUIDE'){
+					header("Location: index.php");
+				}
+				else{
+					header("Location: index.php");
+				}
+                
             } else {
                 // If login details are incorrect
                 $Msg = "<p style='color:red'><strong>Invalid username or password!</strong></p>";
@@ -105,8 +121,7 @@
         $Msg = "<p style='color:red;'>Please complete the reCAPTCHA challenge!</p>";
     }
 }
-	?>
-    <?php include 'header.php'; ?>  
+	?> 
 
 <section class="auth">
         <div class="container auth-container">
