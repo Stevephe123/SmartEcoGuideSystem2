@@ -1,5 +1,6 @@
 <?php
-session_start();
+if($_SESSION['Userole'] == 'ADMINISTRATOR'){
+
 $userId = $_SESSION['user_id'] ?? null;
 $profilePic = "../images/profile.jpg"; // fallback
 
@@ -111,7 +112,7 @@ if ($userId) {
   <button class="back-btn" onclick="toggleSidebar()"><i class="fas fa-arrow-left"></i></button>
 
   <h2><i class="fa fa-leaf"></i> Park Guide</h2>
-  <a href="admin.php"><i class="fas fa-chart-line"></i> Dashboard</a>
+<!--  <a href="admin.php"><i class="fas fa-chart-line"></i> Dashboard</a>-->
 
   <button class="dropdown-btn" onclick="toggleDropdown(this)">
     <i class="fa fa-user"></i> My Profile ▾
@@ -138,3 +139,6 @@ if ($userId) {
     button.parentElement.classList.toggle("active-dropdown");
   }
 </script>
+<?php 
+}
+?>

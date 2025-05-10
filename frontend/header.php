@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+session_start();
+error_reporting(0);
+
+if (isset($_POST['logout_button'])) {
+    session_unset(); // clear session variables
+    session_destroy(); // destroy the session
+    header("Location: login.php"); // redirect to login page
+    exit();
+}
+?>
 <html lang="en">
 
 <head>
@@ -44,7 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     <li><a href="guides.php">Guides</a></li>
                     <li><a href="about.php">About</a></li>
                     <li><a href="survey.php">Feedback</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <li>
+    <?php
+    if (!empty($_SESSION['Id'])) {
+        // Show logout button
+        echo "
+        <form method='post' style='display:inline;'>
+            <input type='submit' name='logout_button' value='LOGOUT'>
+        </form>";
+    } else {
+        // Show login link
+        echo "<a href='login.php'><input type='button' value='LOGIN'></a>";
+    }
+    ?>
+</li>
+
                 </ul>
             </nav>
         </div>

@@ -1,5 +1,10 @@
-<?php include 'header.php'; ?>
-<?php include 'left-sidebar.php'; ?>
+<?php 
+include 'header.php'; 
+if($_SESSION['Userole'] == 'ADMINISTRATOR'){
+	include 'left-sidebar.php';
+}
+
+ ?>
 <?php
 //This is a session expired code
 //	session_start();
