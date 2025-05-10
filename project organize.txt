@@ -1,0 +1,23 @@
+Project Folder Structure
+SmartEcoGuideSystem/
+	assets/ (all static frontend files)
+		css/
+		js/
+		images/
+	config/ (all the config or connection files)
+		db.php
+	controllers/ (all the requests and route logic handling)
+	models/ (database logic)
+	views/ (html pages, separate by role)
+		admin/
+		guide/
+		visitor/
+		shared/
+	routes/ (URL login)
+	middleware/ (role based access control, auth chcks)
+	uploads/ (files, img, docs)
+	index.php
+	.env (environment variables)
+	README.md
+
+		
